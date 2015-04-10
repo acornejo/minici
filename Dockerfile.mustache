@@ -1,0 +1,7 @@
+FROM {{dockerbase}}
+
+RUN apt-get install -qy {{deb_packages}}
+
+RUN git clone --depth={{depth}} --branch={{branch}} --single-branch {{url}} /src/{{name}}
+
+RUN cd /src/{{name}} && rambo {{target}}
